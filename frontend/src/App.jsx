@@ -7,25 +7,31 @@ import SUB2_menu2 from "./pages/SUB2_menu2";
 import Menu3 from "./pages/Menu3";
 import Layout from "./pages/Layout";
 import Hello from "./pages/Hello";
-
+import Login from "./pages/Login";
+import PrivateRoute from "./components/PrivateRoute";
 
 function App() {
-  
   return (
     <>
       <Routes>
-        {/* 공통 layout */}
-        <Route path="/" element={<Layout />}>
-          <Route path="menu1" element={<Menu1 />} />
+        {/* 로그인은 누구나 접근 가능 */}
+        <Route path="/login" element={<Login />} />
 
-          <Route path="menu2" element={<Menu2 />}>
-            {/* <Outlet /> */} 
-            <Route path="sub1" element={<SUB1_menu2 />} />
-            <Route path="sub2" element={<SUB2_menu2 />} />
+        {/* 로그인한 사용자만 접근 가능 */}
+        <Route element={<PrivateRoute />}>
+          {/* 공통 layout */}
+          <Route path="/" element={<Layout />}>
+            <Route path="menu1" element={<Menu1 />} />
+
+            <Route path="menu2" element={<Menu2 />}>
+              {/* <Outlet /> */}
+              <Route path="sub1" element={<SUB1_menu2 />} />
+              <Route path="sub2" element={<SUB2_menu2 />} />
+            </Route>
+
+            <Route path="menu3" element={<Menu3 />} />
+            <Route path="hello" element={<Hello />} />
           </Route>
-
-          <Route path="menu3" element={<Menu3 />} />
-          <Route path="hello" element={<Hello />} />
         </Route>
       </Routes>
     </>
