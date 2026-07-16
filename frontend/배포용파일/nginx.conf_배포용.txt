@@ -1,0 +1,28 @@
+개발중: vite.config.js 파일로 CORS 없이 개발 편하게
+
+배포후엔: 같은 origin으로 만들어 CORS 회피 + 정적파일 서빙
+
+----------------
+ [Nginx (하나의 도메인, 80/443 포트)]
+        /        정적파일
+        /api/*   백엔드(spring)
+
+-----------------
+
+server {
+    listen 80;
+    server_name yourdomain.com;
+
+    # 프론트엔드 (React 빌드 결과물)
+    location / {
+        root /usr/share/nginx/html;
+        try_files $uri /index.html;
+    }
+
+    # 백엔드로 프록시
+    location /api/ {
+        proxy_pass http://localhost:8080/api/;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+    }
+}

@@ -4,18 +4,20 @@ import react from "@vitejs/plugin-react";
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
+
+  // 개발중~
   server: {
     proxy: {
-      "/main": {
-        target: "http://localhost:8090",
-        changeOrigin: true,
-        secure: false,
-      },
-      // "/api": {
+      // "/main": {
       //   target: "http://localhost:8090",
       //   changeOrigin: true,
       //   secure: false,
       // },
+      "/api": {
+        target: "http://localhost:8090",
+        changeOrigin: true,
+        secure: false,
+      },
     },
   },
 });
