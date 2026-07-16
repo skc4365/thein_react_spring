@@ -1,0 +1,20 @@
+기술스택
+--------------------
+javascript
+react 19
+vite
+axios("/api":http://localhost:8090)
+react-router-dom
+
+--------------------
+jdk21
+springboot 4.1.0
+gradle
+
+application.properties
+lombok
+
+webmvc
+postgreSQL(DB:hrd, id:postgres, pass::1234)
+jpa 또는 mybatis 적합성에 따라.
+
