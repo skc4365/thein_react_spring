@@ -15,6 +15,7 @@ import com.skc.entity.User;
 import com.skc.jwt.JwtProvider;
 import com.skc.repository.UserRepository;
 
+import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
 
@@ -39,10 +40,10 @@ public class AuthController {
         String accessToken = jwtProvider.createAccessToken(user.getUsername(), user.getRole());
 
         // TODO: refreshToken 생성 후 HttpOnly 쿠키로 내려주기
-        // Cookie refreshCookie = new Cookie("refreshToken", refreshToken);
-        // refreshCookie.setHttpOnly(true);
-        // refreshCookie.setPath("/api/auth/refresh");
-        // response.addCookie(refreshCookie);
+//         Cookie refreshCookie = new Cookie("refreshToken", refreshToken);
+//         refreshCookie.setHttpOnly(true);
+//         refreshCookie.setPath("/api/auth/refresh");
+//         response.addCookie(refreshCookie);
 
         return ResponseEntity.ok(Map.of(
                 "accessToken", accessToken,

@@ -11,15 +11,15 @@ CREATE TABLE users (
     created_at  TIMESTAMP    NOT NULL DEFAULT now()
 );
 
-CREATE TABLE refresh_tokens (
-    id          BIGSERIAL PRIMARY KEY,
-    user_id     BIGINT      NOT NULL REFERENCES users(id),
-    token       VARCHAR(500) NOT NULL,
-    expiry_date TIMESTAMP    NOT NULL
-);
+-- 세션저장용으로 수정했음, 참고만 하세용~
+--CREATE TABLE refresh_tokens (
+--    id          BIGSERIAL PRIMARY KEY,
+--    user_id     BIGINT      NOT NULL REFERENCES users(id),
+--    token       VARCHAR(500) NOT NULL,
+--    expiry_date TIMESTAMP    NOT NULL
+--);
 
 select * from users;
-select * from refresh_tokens;
 select * from hello07;
 
 -- 일반 사용자 계정 (username: user01 / password: 1234)

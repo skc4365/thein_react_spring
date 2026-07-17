@@ -32,11 +32,11 @@ project/
 
 ## 실행 방법
 
-### 1. 백엔드 (Spring Boot)
+### 1. 백엔드 (Spring Boot) - 세션은 서버가 기억한다 ***
 서버는 기본적으로 `http://localhost:8090` 에서 실행됩니다.
 `JDK 21`이 설치되어 있어야 하며, `build.gradle`의 toolchain 설정으로 JDK 21을 사용하도록 지정되어 있습니다.
 
-### 2. 프론트엔드 (React + Vite)
+### 2. 프론트엔드 (React + Vite) - JWT는 클라이언트가 가지고 다닌다 ***
 ```bash
 cd frontend
 npm install
