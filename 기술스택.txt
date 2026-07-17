@@ -13,8 +13,17 @@ gradle
 
 application.properties
 lombok
+swagger
 
 webmvc
 postgreSQL(DB:hrd, id:postgres, pass::1234)
 jpa 또는 mybatis 적합성에 따라.
+
+Spring Security
+jjwt
+
+--------------------
+gitHub
+notion
+
 
