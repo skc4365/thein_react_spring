@@ -29,6 +29,7 @@ public class SecurityConfig {
         this.jwtProvider = jwtProvider;
     }
 
+//    로그인후에 Home화면이 잘보이면, "/"경로를 열 필요없음.
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
@@ -36,7 +37,15 @@ public class SecurityConfig {
             .cors(Customizer.withDefaults())
             .sessionManagement(sm -> sm.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
             .authorizeHttpRequests(auth -> auth
-                .requestMatchers("/api/auth/**").permitAll()
+                .requestMatchers(
+                		"/api/auth/**",
+                		"/swagger",
+                		"/swagger/**",
+                		"/swagger-ui/**",
+                		"/swagger-ui.html",
+                		"/api-docs",
+                		"/api-docs/**"
+                		).permitAll()
                 .anyRequest().authenticated()
             )
             .addFilterBefore(new JwtAuthFilter(jwtProvider), UsernamePasswordAuthenticationFilter.class);

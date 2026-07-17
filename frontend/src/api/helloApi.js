@@ -1,4 +1,7 @@
-import axiosInstance from "./axiosInstance";
+// 보안적용 전,
+// import axiosInstance from "./axiosInstance";
+// 보안적용 후,
+import axiosInstance from "./axios";
 
 // ==================================
 // HTTP 통신만 담당
