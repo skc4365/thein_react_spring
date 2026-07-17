@@ -11,6 +11,8 @@ import * as helloService from "../services/helloService";
 export default function Hello() {
   const [list, setList] = useState([]);
   const [message, setMessage] = useState("");
+  // AOP
+  const [result, setResult] = useState('');
 
   // 목록 조회
   const loadData = async () => {
@@ -69,6 +71,16 @@ export default function Hello() {
     }
   };
 
+  // 목록 조회 - AOP
+  const handleAOPSlow = async () => {
+    try {
+      const data = await helloService.callSlow();
+      setResult(data);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   return (
     <div style={{ padding: 30 }}>
       <h2>Hello CRUD</h2>
@@ -114,6 +126,11 @@ export default function Hello() {
 
                 <button onClick={() => handleDelete(item.id)}>
                   삭제
+                </button>
+
+                {/* handleAOPSlow */}
+                <button onClick={() => handleAOPSlow(item.id)}>
+                  느린 메서드 호출 (AOP 시간 측정-{result})
                 </button>
               </td>
             </tr>

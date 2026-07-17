@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.skc.aop.LogExecutionTime;
 import com.skc.entity.Hello;
 import com.skc.service.HelloService;
 
@@ -47,5 +48,20 @@ public class HelloController {
 	public void delete(@PathVariable Long id) {
 		service.delete(id);
 	}
+	
+//	====== AOP ======
+	@LogExecutionTime
+    @GetMapping("/slow")
+    public String slowMethod() throws InterruptedException {
+        Thread.sleep(500); // 느린 작업 시뮬레이션
+        return "완료!";
+    }
+
+    @GetMapping("/error")
+    public String errorTest() {
+        throw new RuntimeException("일부러 발생시킨 예외임당");
+    }
+	
+	
 
 }

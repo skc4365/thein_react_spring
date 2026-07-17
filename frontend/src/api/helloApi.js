@@ -24,3 +24,8 @@ export const updateHello = (id, data) => {
 export const deleteHello = (id) => {
   return axiosInstance.delete(`/hello/${id}`);
 };
+
+// 조회 - AOP
+export const callSlow = () => {
+  return axiosInstance.get("/hello/slow");
+};

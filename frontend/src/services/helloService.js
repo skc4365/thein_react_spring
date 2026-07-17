@@ -21,6 +21,7 @@ export const getHelloList = async () => {
   }
 };
 
+
 // 등록
 export const createHello = async (data) => {
   try {
@@ -49,6 +50,18 @@ export const deleteHello = async (id) => {
     await helloApi.deleteHello(id);
   } catch (error) {
     console.error("Hello 삭제 실패:", error);
+    throw error;
+  }
+};
+
+// 조회 - AOP
+export const callSlow = async () => {
+  try {
+    const response = await helloApi.callSlow();
+    //return response.data.message;
+    return response.data;
+  } catch (error) {
+    console.error("callSlow AOP 조회 실패:", error);
     throw error;
   }
 };
