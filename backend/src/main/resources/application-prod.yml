@@ -18,5 +18,5 @@ spring:
 # Server 설정
 #=================
 server:
-  port: 8092
+  port: 8092 #443 보안적용
 
