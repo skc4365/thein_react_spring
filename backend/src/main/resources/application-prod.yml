@@ -1,0 +1,22 @@
+#=================
+# postgreSQL 연결
+#=================
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/proj
+    username: postgres
+    password: 1234
+
+  jpa:
+    hibernate:
+      ddl-auto: validate
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.CamelCaseToUnderscoresNamingStrategy
+      show-sql: false
+
+#=================
+# Server 설정
+#=================
+server:
+  port: 8092
+

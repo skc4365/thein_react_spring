@@ -1,0 +1,37 @@
+spring:
+  application:
+    name: backend
+
+  profiles:
+    # 멀티 프로파일 적용.
+    active: dev
+
+#=================
+# Server 설정
+#=================
+server:
+  port: 8080
+
+#=================
+# Swagger 설정
+#=================
+springdoc:
+  swagger-ui:
+    path: /swagger
+
+  api-docs:
+    path: /api-docs
+
+#=================
+# JPA 설정
+#=================
+# ddl-auto=update: Etity클래스를 기분으로 테이블 자동 생성 및 수정.
+# show-sql=true: 런타임에 SQL쿼리를 콘솔에 출력
+# physical-strategy: Entity의 카멜케이스 클래스명() -> 변환시킴(소문자_테이블명으로)
+
+
+
+
+
+
+    
