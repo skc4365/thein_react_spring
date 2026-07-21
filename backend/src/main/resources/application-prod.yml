@@ -18,5 +18,16 @@ spring:
 # Server 설정
 #=================
 server:
-  port: 8092 #443 보안적용
+  port: 8443 #톰캣-보안적용
+  ssl:
+    enabled: true
+    key-store: classpath:keystore.p12
+    key-password: 12345678
+    key-store-type: PKCS12
+    key-alias: tomcat
+    key-store-password: 12345678
+
+
+
+
 
